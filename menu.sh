@@ -400,7 +400,7 @@ if [[ -z $mode_func ]];then
 choice=$(whiptail --title "${smenu[ttitle]}" --menu "${smenu[tmenu]}" \
 --ok-button "${smenu[ok]}" \
 --cancel-button "${smenu[exit]}" \
-15 50 6 \
+15 60 6 \
 "1" "${smenu[tip]}" \
 "2" "${smenu[tnet]}" \
 "3" "${smenu[thard]}" \
