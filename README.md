@@ -29,8 +29,8 @@ bash <(curl -Ls Check.Place)
 
 #### 英文界面及报告（任选其一）：
 ````bash
-bash <(curl -Ls Net.Check.Place) -E
-bash <(curl -Ls Net.Check.Place) -l en
+bash <(curl -Ls Check.Place) -E
+bash <(curl -Ls Check.Place) -l en
 ````
 
 #### 只检测IPv4结果：
@@ -45,20 +45,20 @@ bash <(curl -Ls Check.Place) -6
 
 #### 默认进入IP质量体检界面：
 ````bash
-bash <(curl -Ls Net.Check.Place) -I
+bash <(curl -Ls Check.Place) -I
 ````
 #####  * 以下命令可将界面锁定于IP质量体检
 ````bash
-bash <(curl -Ls Net.Check.Place) -IL
+bash <(curl -Ls Check.Place) -IL
 ````
 
 #### 默认进入网络质量体检界面：
 ````bash
-bash <(curl -Ls Net.Check.Place) -N
+bash <(curl -Ls Check.Place) -N
 ````
 #####  * 以下命令可将界面锁定于网络质量体检
 ````bash
-bash <(curl -Ls Net.Check.Place) -NL
+bash <(curl -Ls Check.Place) -NL
 ````
 
 #### 自动安装依赖：
