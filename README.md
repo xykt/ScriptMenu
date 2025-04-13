@@ -14,9 +14,11 @@ bash <(curl -Ls Check.Place)
 
 ## 屏幕截图
 
-|主菜单|IP质量体检菜单|网络质量体检菜单|
-| ---------------- | ---------------- | ---------------- |
-|![Main](https://github.com/xykt/ScriptMenu/raw/main/res/Main_CN.png)|![IP](https://github.com/xykt/ScriptMenu/raw/main/res/IP_CN.png)|![Net](https://github.com/xykt/ScriptMenu/raw/main/res/Net_CN.png)|
+|界面|截图|
+| ---------------- | ---------------- |
+|主菜单|![Main](https://github.com/xykt/ScriptMenu/raw/main/res/Main_CN.png)|
+|IP质量体检菜单|![IP](https://github.com/xykt/ScriptMenu/raw/main/res/IP_CN.png)|
+|网络质量体检菜单|![Net](https://github.com/xykt/ScriptMenu/raw/main/res/Net_CN.png)|
 
 
 
