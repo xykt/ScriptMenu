@@ -604,6 +604,7 @@ cmd+=" -4"
 elif [[ $subchoice -eq 3 ]];then
 cmd+=" -6"
 fi
+[[ $YY == "en" ]]&&cmd+=" -l en"
 break
 done
 }
