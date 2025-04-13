@@ -25,12 +25,12 @@ bash <(curl -Ls Check.Place) -E
 #### Default mode (choose either):
 ````bash
 bash <(curl -Ls Check.Place) -E
-bash <(curl -Ls Net.Check.Place) -l en
+bash <(curl -Ls Check.Place) -l en
 ````
 
 #### Chinese interface and reports:
 ````bash
-bash <(curl -Ls Net.Check.Place)
+bash <(curl -Ls Check.Place)
 ````
 
 #### IPv4-only:
@@ -45,20 +45,20 @@ bash <(curl -Ls Check.Place) -6
 
 #### Default to IP Quality Check menu:
 ````bash
-bash <(curl -Ls Net.Check.Place) -I
+bash <(curl -Ls Check.Place) -I
 ````
 #####  * The following command locks the interface to IP Quality Check
 ````bash
-bash <(curl -Ls Net.Check.Place) -IL
+bash <(curl -Ls Check.Place) -IL
 ````
 
 #### Default to Network Quality Check menu:
 ````bash
-bash <(curl -Ls Net.Check.Place) -N
+bash <(curl -Ls Check.Place) -N
 ````
 #####  * The following command locks the interface to Network Quality Check
 ````bash
-bash <(curl -Ls Net.Check.Place) -NL
+bash <(curl -Ls Check.Place) -NL
 ````
 
 #### Automatic dependency installation:
