@@ -400,7 +400,7 @@ if [[ -z $mode_func ]];then
 choice=$(whiptail --title "${smenu[ttitle]}" --menu "${smenu[tmenu]}" \
 --ok-button "${smenu[ok]}" \
 --cancel-button "${smenu[exit]}" \
-15 60 6 \
+16 60 6 \
 "1" "${smenu[tip]}" \
 "2" "${smenu[tnet]}" \
 "3" "${smenu[thard]}" \
@@ -433,7 +433,7 @@ fi
 subchoice=$(whiptail --title "${smenu[siptitle]}" --menu "${smenu[sipmenu]}" \
 --ok-button "${smenu[ok]}" \
 --cancel-button "${smenu[exit]}" \
-15 60 6 \
+16 60 6 \
 "1" "${smenu[sipstart]}" \
 "a" "${smenu[sipfuniface]}$msgi1" \
 "b" "${smenu[sipfunproxy]}$msgi2" \
@@ -494,7 +494,7 @@ while true;do
 subchoice=$(whiptail --title "${smenu[snettitle]}" --menu "${smenu[snetmenu]}" \
 --ok-button "${smenu[ok]}" \
 --cancel-button "${smenu[exit]}" \
-15 60 8 \
+16 60 8 \
 "1" "${smenu[snetfull]}" \
 "2" "${smenu[snetlite]}" \
 "3" "${smenu[snetroute]}" \
@@ -524,7 +524,7 @@ break
 [[ $optn4 -eq 1 ]]&&cmd+=" -f"
 break
 ;;
-5)optn2=$(whiptail --title "${smenu[snetcustomtitle]}" --checklist "${smenu[snetcustominput]}" --ok-button "${smenu[ok]}" --cancel-button "${smenu[exit]}" 15 60 7 \
+5)optn2=$(whiptail --title "${smenu[snetcustomtitle]}" --checklist "${smenu[snetcustominput]}" --ok-button "${smenu[ok]}" --cancel-button "${smenu[exit]}" 16 60 7 \
 "1" "${smenu[snetcustombgp]}" ON \
 "2" "${smenu[snetcustomlocal]}" ON \
 "3" "${smenu[snetcustomconn]}" ON \
@@ -578,7 +578,7 @@ cmd="bash <(curl -sL yabs.sh) -in5"
 subchoice=$(whiptail --title "${smenu[shardtitle]}" --menu "${smenu[shardmenu]}" \
 --ok-button "${smenu[ok]}" \
 --cancel-button "${smenu[exit]}" \
-15 60 2 \
+16 60 2 \
 "a" "${smenu[shardreplace]}" \
 "0" "${smenu[shardreturn]}" 3>&1 1>&2 2>&3)
 [[ $subchoice == "0" ]]&&continue
@@ -594,7 +594,7 @@ if [[ $IPV4check -eq 1 && $IPV6check -eq 1 && $IPV4work -eq 1 && $IPV6work -eq 1
 subchoice=$(whiptail --title "${smenu[ipv46title]}" --menu "${smenu[ipv46menu]}" \
 --ok-button "${smenu[ok]}" \
 --cancel-button "${smenu[exit]}" \
-15 60 3 \
+16 60 3 \
 "1" "${smenu[ipv46v4v6]}" \
 "2" "${smenu[ipv46v4]}" \
 "3" "${smenu[ipv46v6]}" 3>&1 1>&2 2>&3)
