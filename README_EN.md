@@ -14,10 +14,11 @@ bash <(curl -Ls Check.Place) -E
 
 ## Screenshots
 
-|Main Menu|IP Quality Check Menu|Network Quality Check Menu|
-| ---------------- | ---------------- | ---------------- |
-|![Main](https://github.com/xykt/ScriptMenu/raw/main/res/Main_EN.png)|![IP](https://github.com/xykt/ScriptMenu/raw/main/res/IP_EN.png)|![Net](https://github.com/xykt/ScriptMenu/raw/main/res/Net_EN.png)|
-
+|Interface|Screenshot|
+| ---------------- | ---------------- |
+|Main Men|![Main](https://github.com/xykt/ScriptMenu/raw/main/res/Main_EN.png)|
+|IP Quality Check Menu|![IP](https://github.com/xykt/ScriptMenu/raw/main/res/IP_EN.png)|
+|Network Quality Check Menu|![Net](https://github.com/xykt/ScriptMenu/raw/main/res/Net_EN.png)|
 
 
 ## Usage Instructions
