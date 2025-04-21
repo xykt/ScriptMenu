@@ -69,4 +69,6 @@ bash <(curl -Ls Check.Place) -y
 
 ## Script Updates
 
+2025/04/21 21:30 Fix IPv4 server Full Rout Mode bug
+
 2025/04/13 21:00 Script released
