@@ -1,5 +1,5 @@
 #!/bin/bash
-script_version="v2025-04-14"
+script_version="v2025-04-21"
 Font_B="\033[1m"
 Font_D="\033[2m"
 Font_I="\033[3m"
@@ -389,6 +389,7 @@ while true;do
 cmd=""
 choice=""
 subchoice=""
+ipvchoice=""
 ipv=""
 export NEWT_COLORS='
           root=,green
@@ -591,7 +592,7 @@ subchoice=$(whiptail --title "${smenu[shardtitle]}" --menu "${smenu[shardmenu]}"
 *)exit 1
 esac
 if [[ $IPV4check -eq 1 && $IPV6check -eq 1 && $IPV4work -eq 1 && $IPV6work -eq 1 ]]&&[[ $cmd == *"IP.Check.Place"* || $cmd == *"Net.Check.Place"* ]];then
-subchoice=$(whiptail --title "${smenu[ipv46title]}" --menu "${smenu[ipv46menu]}" \
+ipvchoice=$(whiptail --title "${smenu[ipv46title]}" --menu "${smenu[ipv46menu]}" \
 --ok-button "${smenu[ok]}" \
 --cancel-button "${smenu[exit]}" \
 16 60 3 \
@@ -599,9 +600,9 @@ subchoice=$(whiptail --title "${smenu[ipv46title]}" --menu "${smenu[ipv46menu]}"
 "2" "${smenu[ipv46v4]}" \
 "3" "${smenu[ipv46v6]}" 3>&1 1>&2 2>&3)
 fi
-if [[ $subchoice -eq 2 ]];then
+if [[ $ipvchoice -eq 2 ]];then
 cmd+=" -4"
-elif [[ $subchoice -eq 3 ]];then
+elif [[ $ipvchoice -eq 3 ]];then
 cmd+=" -6"
 fi
 [[ $YY == "en" ]]&&cmd+=" -l en"
