@@ -1,5 +1,5 @@
 #!/bin/bash
-script_version="v2025-05-17"
+script_version="v2025-07-31"
 Font_B="\033[1m"
 Font_D="\033[2m"
 Font_I="\033[3m"
@@ -419,7 +419,7 @@ case $choice in
               shadow=,green
               entry=,green
             '
-cmd="bash <(curl -Ls IP.Check.Place)"
+cmd="bash <(curl -Ls https://IP.Check.Place)"
 while true;do
 if [[ -n $opti1 ]];then
 msgi1="${smenu[set]}"
@@ -490,7 +490,7 @@ done
               entry=,green
               checkbox=black,white
             '
-cmd="bash <(curl -Ls Net.Check.Place)"
+cmd="bash <(curl -Ls https://Net.Check.Place)"
 while true;do
 subchoice=$(whiptail --title "${smenu[snettitle]}" --menu "${smenu[snetmenu]}" \
 --ok-button "${smenu[ok]}" \
@@ -585,7 +585,7 @@ subchoice=$(whiptail --title "${smenu[shardtitle]}" --menu "${smenu[shardmenu]}"
 [[ $subchoice == "0" ]]&&continue
 [[ $subchoice == "" ]]&&exit 1
 ;;
-4)cmd="bash <(curl -sL Media.Check.Place)"
+4)cmd="bash <(curl -sL https://Media.Check.Place)"
 ;;
 5)cmd="bash <(curl -sL https://run.NodeQuality.com)"
 ;;
