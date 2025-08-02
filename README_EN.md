@@ -8,8 +8,14 @@
 
 **Supported OS/Platforms:** Ubuntu | Debian | Linux Mint | Fedora | Red Hat Enterprise Linux (RHEL) | CentOS | Arch Linux | Manjaro | Alpine Linux | AlmaLinux | Rocky Linux | macOS | Anolis OS | Alibaba Cloud Linux | SUSE Linux | openSUSE | Void Linux
 
+#### Bash:
 ````bash
-bash <(curl -Ls Check.Place) -E
+bash <(curl -Ls Check.Place)
+````
+
+#### Docker:
+````bash
+docker run --rm --net=host -it xykt/check
 ````
 
 ## Screenshots
