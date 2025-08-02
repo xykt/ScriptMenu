@@ -15,7 +15,7 @@ bash <(curl -Ls Check.Place)
 
 #### Docker:
 ````bash
-docker run --rm --net=host -it xykt/check
+docker run --rm --net=host -it xykt/check && docker rmi xykt/check > /dev/null 2>&1
 ````
 
 ## 屏幕截图
