@@ -10,12 +10,12 @@
 
 #### Bash:
 ````bash
-bash <(curl -Ls Check.Place)
+bash <(curl -Ls Check.Place) -E
 ````
 
 #### Docker:
 ````bash
-docker run --rm --net=host -it xykt/check
+docker run --rm --net=host -it xykt/check -E
 ````
 
 ## Screenshots
