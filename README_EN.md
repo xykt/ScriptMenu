@@ -4,7 +4,7 @@
 <a href="/LICENSE"><img src="https://img.shields.io/badge/License-AGPL%20v3-blue.svg" alt="license" /></a>  
 </p>
 
-## XY Series Script Interactive Menu - [XY系列脚本交互菜单（中文）](https://github.com/xykt/ScriptMenu/blob/main/README_CN.md)
+## XY Series Script Interactive Menu - [XY系列脚本交互菜单（中文）](https://github.com/xykt/ScriptMenu/blob/main/README.md)
 
 **Supported OS/Platforms:** Ubuntu | Debian | Linux Mint | Fedora | Red Hat Enterprise Linux (RHEL) | CentOS | Arch Linux | Manjaro | Alpine Linux | AlmaLinux | Rocky Linux | macOS | Anolis OS | Alibaba Cloud Linux | SUSE Linux | openSUSE | Void Linux
 
