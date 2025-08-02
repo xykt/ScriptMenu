@@ -12,6 +12,7 @@
 ````bash
 bash <(curl -Ls Check.Place)
 ````
+
 #### Docker:
 ````bash
 docker run --rm --net=host -it xykt/check
