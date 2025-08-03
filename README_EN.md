@@ -18,6 +18,7 @@ bash <(curl -Ls Check.Place) -E
 ````bash
 docker run --rm --net=host -it xykt/check && docker rmi xykt/check > /dev/null 2>&1
 ````
+
 - Windows (CMD)
 ````cmd
 docker run --rm --net=host -it xykt/check & docker rmi xykt/check > NUL 2>&1
