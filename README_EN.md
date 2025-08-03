@@ -6,7 +6,7 @@
 
 ## XY Series Script Interactive Menu - [XY系列脚本交互菜单（中文）](https://github.com/xykt/ScriptMenu/blob/main/README.md)
 
-**Supported OS/Platforms:** Ubuntu | Debian | Linux Mint | Fedora | Red Hat Enterprise Linux (RHEL) | CentOS | Arch Linux | Manjaro | Alpine Linux | AlmaLinux | Rocky Linux | macOS | Anolis OS | Alibaba Cloud Linux | SUSE Linux | openSUSE | Void Linux
+**Supported OS/Platforms: Ubuntu | Debian | Linux Mint | Fedora | Red Hat Enterprise Linux (RHEL) | CentOS | Arch Linux | Manjaro | Alpine Linux | AlmaLinux | Rocky Linux | macOS | Anolis OS | Alibaba Cloud Linux | SUSE Linux | openSUSE | Void Linux | Windows (via Docker)**
 
 #### Bash:
 ````bash
@@ -14,8 +14,13 @@ bash <(curl -Ls Check.Place) -E
 ````
 
 #### Docker:
+- Linux
 ````bash
-docker run --rm --net=host -it xykt/check -E && docker rmi xykt/check > /dev/null 2>&1
+docker run --rm --net=host -it xykt/check && docker rmi xykt/check > /dev/null 2>&1
+````
+- Windows (CMD)
+````cmd
+docker run --rm --net=host -it xykt/check & docker rmi xykt/check > NUL 2>&1
 ````
 
 ## Screenshots
