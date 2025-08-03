@@ -6,7 +6,7 @@
 
 ## XY系列脚本交互菜单  -  [Menu for XY Scripts (EN)](https://github.com/xykt/ScriptMenu/blob/main/README_EN.md)
 
-**支持OS/Platform：Ubuntu | Debian | Linux Mint | Fedora | Red Hat Enterprise Linux (RHEL) | CentOS | Arch Linux | Manjaro | Alpine Linux | AlmaLinux | Rocky Linux | macOS | Anolis OS | Alibaba Cloud Linux | SUSE Linux | openSUSE | Void Linux**
+**支持OS/Platform：Ubuntu | Debian | Linux Mint | Fedora | Red Hat Enterprise Linux (RHEL) | CentOS | Arch Linux | Manjaro | Alpine Linux | AlmaLinux | Rocky Linux | macOS | Anolis OS | Alibaba Cloud Linux | SUSE Linux | openSUSE | Void Linux | Windows (via Docker)**
 
 #### Bash:
 ````bash
@@ -14,8 +14,13 @@ bash <(curl -Ls Check.Place)
 ````
 
 #### Docker:
+- Linux
 ````bash
 docker run --rm --net=host -it xykt/check && docker rmi xykt/check > /dev/null 2>&1
+````
+- Windows (CMD)
+````cmd
+docker run --rm --net=host -it xykt/check & docker rmi xykt/check > NUL 2>&1
 ````
 
 ## 屏幕截图
