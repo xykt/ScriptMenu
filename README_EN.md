@@ -16,12 +16,12 @@ bash <(curl -Ls Check.Place) -E
 #### Docker:
 - Linux
 ````bash
-docker run --rm --net=host -it xykt/check && docker rmi xykt/check > /dev/null 2>&1
+docker run --rm -it --privileged --net=host --pid=host -v /:/host:ro xykt/check -E && docker rmi xykt/check > /dev/null 2>&1
 ````
 
 - Windows (CMD)
 ````cmd
-docker run --rm --net=host -it xykt/check & docker rmi xykt/check > NUL 2>&1
+docker run --rm -it --privileged xykt/check -E & docker rmi xykt/check > NUL 2>&1
 ````
 
 ## Screenshots
@@ -31,6 +31,7 @@ docker run --rm --net=host -it xykt/check & docker rmi xykt/check > NUL 2>&1
 |Main Men|![Main](https://github.com/xykt/ScriptMenu/raw/main/res/Main_EN.png)|
 |IP Quality Check Menu|![IP](https://github.com/xykt/ScriptMenu/raw/main/res/IP_EN.png)|
 |Network Quality Check Menu|![Net](https://github.com/xykt/ScriptMenu/raw/main/res/Net_EN.png)|
+|Hardware Quality Check Menu|![Net](https://github.com/xykt/ScriptMenu/raw/main/res/Hardware_EN.png)|
 
 
 ## Usage Instructions
@@ -60,6 +61,7 @@ bash <(curl -Ls Check.Place) -6
 ````bash
 bash <(curl -Ls Check.Place) -I
 ````
+
 #####  * The following command locks the interface to IP Quality Check
 ````bash
 bash <(curl -Ls Check.Place) -IL
@@ -69,9 +71,20 @@ bash <(curl -Ls Check.Place) -IL
 ````bash
 bash <(curl -Ls Check.Place) -N
 ````
+
 #####  * The following command locks the interface to Network Quality Check
 ````bash
 bash <(curl -Ls Check.Place) -NL
+````
+
+#### Default to Hardware Quality Check menu:
+````bash
+bash <(curl -Ls Check.Place) -H
+````
+
+#####  * The following command locks the interface to Hardware Quality Check
+````bash
+bash <(curl -Ls Check.Place) -HL
 ````
 
 #### Automatic dependency installation:
@@ -81,6 +94,12 @@ bash <(curl -Ls Check.Place) -y
 
 ## Script Updates
 
+2026/01/14 22:20 Add support for Hardware Quality Check Script
+
 2025/04/21 21:30 Fix IPv4 server Full Rout Mode bug
 
 2025/04/13 21:00 Script released
+
+**Daily Runs History:**
+
+![daily_runs_history](https://hits.xykt.de/history/menu.svg?days=46&chartType=bar&title=Daily%20Runs%20of%20XY%20Script%20Interactive%20Menu&width=1024&height=400&color=orange)
