@@ -1,5 +1,5 @@
 #!/bin/bash
-script_version="v2025-07-31"
+script_version="v2026-01-14"
 Font_B="\033[1m"
 Font_D="\033[2m"
 Font_I="\033[3m"
@@ -61,14 +61,14 @@ smenu[ttitle]="Welcome to XY Series Scripts"
 smenu[tmenu]="Please select a script function:"
 smenu[tip]="IP Quality Check"
 smenu[tnet]="Network Quality Check"
-smenu[thard]="Hardware Quality Check (Not Yet Developed)"
-smenu[tmedia]="Media Unlock Detection (Mod from lmc999)"
+smenu[thard]="Hardware Quality Check"
 smenu[tnq]="NodeQuality All-in-One Test (by LloydAsp)"
+smenu[tmedia]="Media Unlock Detection (Mod from lmc999)"
 smenu[texit]="Exit Script"
 smenu[siptitle]="IP Quality Check Script"
 smenu[sipmenu]="Please select a script function:"
 smenu[sipstart]="Start Detection"
-smenu[sipfuniface]="Parameter: Specify Network Interface or Outbound IP"
+smenu[sipfuniface]="Parameter: Specify Network Interface or IP"
 smenu[sipfunproxy]="Parameter: Specify Proxy Server"
 smenu[sipfunautodep]="Parameter: Auto-install Dependencies"
 smenu[sipfunfullip]="Parameter: Show Full IP in Report"
@@ -99,9 +99,16 @@ smenu[snetcustomroute]="Route to China Mainland"
 smenu[snetcustomspeed]="NetSpeed to China"
 smenu[snetcustomiperf]="Global Network"
 smenu[shardtitle]="Hardware Quality Check Script"
-smenu[shardmenu]="Sorry, this script is not yet developed. Please consider alternatives."
-smenu[shardreplace]="Alternative - yabs Test"
+smenu[shardmenu]="Please select a script function:"
+smenu[shardstandard]="Standard Mode"
+smenu[shardfast]="Fast Mode"
+smenu[sharddisk]="Disk Mode"
+smenu[shardfundir]="Parameter: Specify Disk Test Path"
+smenu[shardfunautodep]="Parameter: Auto-install Dependencies"
+smenu[shardfunfull]="Parameter: Show Full IP & Path in Report"
 smenu[shardreturn]="Return to Main Menu"
+smenu[shardfundirtitle]="Setting: Specify Disk Test Path (Defaults Current Path)"
+smenu[shardfundirinput]="Please enter the disk test path (Absolute or Relative):"
 smenu[ipv46title]="Select IPv4/IPv6 Detection Type"
 smenu[ipv46menu]="Please select the detection type:"
 smenu[ipv46v4v6]="IPv4 and IPv6 Dual Stack"
@@ -128,9 +135,9 @@ smenu[ttitle]="欢迎使用XY系列脚本"
 smenu[tmenu]="请选择脚本功能："
 smenu[tip]="IP质量体检"
 smenu[tnet]="网络质量体检"
-smenu[thard]="硬件质量体检（暂未开发）"
+smenu[thard]="硬件质量体检"
+smenu[tnq]="NodeQuality一键全面体检（by酒神）"
 smenu[tmedia]="改版流媒体解锁检测（原作lmc999）"
-smenu[tnq]="NodeQuality全能测试（by酒神）"
 smenu[texit]="退出脚本"
 smenu[siptitle]="IP质量体检脚本"
 smenu[sipmenu]="请选择脚本功能："
@@ -166,9 +173,16 @@ smenu[snetcustomroute]="三网回程路由"
 smenu[snetcustomspeed]="国内测速"
 smenu[snetcustomiperf]="国际互连"
 smenu[shardtitle]="硬件质量体检脚本"
-smenu[shardmenu]="抱歉，脚本暂未开发，请考虑替代方案"
-smenu[shardreplace]="替代方案 - yabs测试"
+smenu[shardmenu]="请选择脚本功能："
+smenu[shardstandard]="标准模式"
+smenu[shardfast]="快速模式"
+smenu[sharddisk]="硬盘模式"
+smenu[shardfundir]="参数：指定硬盘测试路径"
+smenu[shardfunautodep]="参数：自动安装依赖"
+smenu[shardfunfull]="参数：报告展示完整IP及路径"
 smenu[shardreturn]="返回主菜单"
+smenu[shardfundirtitle]="设定：指定硬盘测试路径（默认为当前路径）"
+smenu[shardfundirinput]="请输入硬盘测试路径："
 smenu[ipv46title]="选择IPv4/IPv6检测类型"
 smenu[ipv46menu]="请选择检测类型："
 smenu[ipv46v4v6]="IPv4及IPv6双栈"
@@ -379,12 +393,18 @@ local optn1=""
 local optn2=""
 local optn3=1
 local optn4=0
+local opth1=""
+local opth2=1
+local opth3=0
 local msgi1
 local msgi2
 local msgi3="${smenu[enable]}"
 local msgi4="${smenu[disable]}"
 local msgn3="${smenu[enable]}"
 local msgn4="${smenu[disable]}"
+local msgh1
+local msgh2="${smenu[enable]}"
+local msgh3="${smenu[disable]}"
 while true;do
 cmd=""
 choice=""
@@ -405,8 +425,8 @@ choice=$(whiptail --title "${smenu[ttitle]}" --menu "${smenu[tmenu]}" \
 "1" "${smenu[tip]}" \
 "2" "${smenu[tnet]}" \
 "3" "${smenu[thard]}" \
-"4" "${smenu[tmedia]}" \
-"5" "${smenu[tnq]}" \
+"4" "${smenu[tnq]}" \
+"5" "${smenu[tmedia]}" \
 "0" "${smenu[texit]}" 3>&1 1>&2 2>&3)
 else
 choice="$mode_func"
@@ -575,19 +595,77 @@ done
               shadow=,magenta
               entry=,green
             '
-cmd="bash <(curl -sL yabs.sh) -in5"
+cmd="bash <(curl -Ls https://Hardware.Check.Place)"
+while true;do
+if [[ -n $opth1 ]];then
+msgh1="${smenu[set]}"
+else
+msgh1="${smenu[unset]}"
+fi
 subchoice=$(whiptail --title "${smenu[shardtitle]}" --menu "${smenu[shardmenu]}" \
 --ok-button "${smenu[ok]}" \
 --cancel-button "${smenu[exit]}" \
-16 60 2 \
-"a" "${smenu[shardreplace]}" \
+16 60 8 \
+"1" "${smenu[shardstandard]}" \
+"2" "${smenu[shardfast]}" \
+"3" "${smenu[sharddisk]}" \
+"a" "${smenu[shardfundir]}$msgh1" \
+"b" "${smenu[shardfunautodep]}$msgh2" \
+"c" "${smenu[shardfunfull]}$msgh3" \
 "0" "${smenu[shardreturn]}" 3>&1 1>&2 2>&3)
+case $subchoice in
+1)[[ -n $opth1 ]]&&cmd+=" -d $opth1"
+[[ $opth2 -eq 1 ]]&&cmd+=" -y"
+[[ $opth3 -eq 1 ]]&&cmd+=" -f"
+break
+;;
+2)cmd+=" -F"
+[[ -n $opth1 ]]&&cmd+=" -d $opth1"
+[[ $opth2 -eq 1 ]]&&cmd+=" -y"
+[[ $opth3 -eq 1 ]]&&cmd+=" -f"
+break
+;;
+3)cmd+=" -D"
+[[ -n $opth1 ]]&&cmd+=" -d $opth1"
+[[ $opth2 -eq 1 ]]&&cmd+=" -y"
+[[ $opth3 -eq 1 ]]&&cmd+=" -f"
+break
+;;
+a)opth1=$(whiptail --title "${smenu[shardfundirtitle]}" --inputbox "${smenu[shardfundirinput]}" --ok-button "${smenu[ok]}" --cancel-button "${smenu[cancel]}" 10 60 "$opth1" 3>&1 1>&2 2>&3)
+continue
+;;
+b)if
+[[ $opth2 -eq 0 ]]
+then
+opth2=1
+msgh2="${smenu[enable]}"
+else
+opth2=0
+msgh2="${smenu[disable]}"
+fi
+continue
+;;
+c)if
+[[ $opth3 -eq 0 ]]
+then
+opth3=1
+msgh3="${smenu[enable]}"
+else
+opth3=0
+msgh3="${smenu[disable]}"
+fi
+continue
+;;
+0)break
+;;
+*)exit 1
+esac
+done
 [[ $subchoice == "0" ]]&&continue
-[[ $subchoice == "" ]]&&exit 1
 ;;
-4)cmd="bash <(curl -sL https://Media.Check.Place)"
+4)cmd="bash <(curl -sL https://run.NodeQuality.com)"
 ;;
-5)cmd="bash <(curl -sL https://run.NodeQuality.com)"
+5)cmd="bash <(curl -sL https://Media.Check.Place)"
 ;;
 *)exit 1
 esac
