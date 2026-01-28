@@ -1,5 +1,5 @@
 #!/bin/bash
-script_version="v2026-01-14"
+script_version="v2026-01-28"
 Font_B="\033[1m"
 Font_D="\033[2m"
 Font_I="\033[3m"
@@ -103,6 +103,7 @@ smenu[shardmenu]="Please select a script function:"
 smenu[shardstandard]="Standard Mode"
 smenu[shardfast]="Fast Mode"
 smenu[sharddisk]="Disk Mode"
+smenu[shardverbose]="Verbose Mode"
 smenu[shardfundir]="Parameter: Specify Disk Test Path"
 smenu[shardfunautodep]="Parameter: Auto-install Dependencies"
 smenu[shardfunfull]="Parameter: Show Full IP & Path in Report"
@@ -177,6 +178,7 @@ smenu[shardmenu]="请选择脚本功能："
 smenu[shardstandard]="标准模式"
 smenu[shardfast]="快速模式"
 smenu[sharddisk]="硬盘模式"
+smenu[shardverbose]="深度模式"
 smenu[shardfundir]="参数：指定硬盘测试路径"
 smenu[shardfunautodep]="参数：自动安装依赖"
 smenu[shardfunfull]="参数：报告展示完整IP及路径"
@@ -609,6 +611,7 @@ subchoice=$(whiptail --title "${smenu[shardtitle]}" --menu "${smenu[shardmenu]}"
 "1" "${smenu[shardstandard]}" \
 "2" "${smenu[shardfast]}" \
 "3" "${smenu[sharddisk]}" \
+"4" "${smenu[shardverbose]}" \
 "a" "${smenu[shardfundir]}$msgh1" \
 "b" "${smenu[shardfunautodep]}$msgh2" \
 "c" "${smenu[shardfunfull]}$msgh3" \
@@ -626,6 +629,12 @@ break
 break
 ;;
 3)cmd+=" -D"
+[[ -n $opth1 ]]&&cmd+=" -d $opth1"
+[[ $opth2 -eq 1 ]]&&cmd+=" -y"
+[[ $opth3 -eq 1 ]]&&cmd+=" -f"
+break
+;;
+4)cmd+=" -V"
 [[ -n $opth1 ]]&&cmd+=" -d $opth1"
 [[ $opth2 -eq 1 ]]&&cmd+=" -y"
 [[ $opth3 -eq 1 ]]&&cmd+=" -f"
